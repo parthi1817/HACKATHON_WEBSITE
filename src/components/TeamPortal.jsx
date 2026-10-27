@@ -90,44 +90,6 @@ export default function TeamPortal({ onSelectTeamForSubmission }) {
         </button>
       </form>
 
-      {/* Quick Search Hints */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '10px',
-        flexWrap: 'wrap',
-        marginBottom: '36px',
-        fontSize: '0.82rem',
-        color: 'var(--text-muted)'
-      }}>
-        <span>Quick search registered teams:</span>
-        {['FM-101', 'Meet Amit Dharaiya', 'FM-102', 'Thanishka Koppanathi'].map((sample) => (
-          <button
-            key={sample}
-            type="button"
-            onClick={() => {
-              setSearchQuery(sample);
-              lookupTeam(sample).then((res) => {
-                setSearchResults(res || []);
-                setHasSearched(true);
-              });
-            }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: '6px',
-              padding: '3px 10px',
-              color: '#38bdf8',
-              fontFamily: 'var(--font-mono)',
-              cursor: 'pointer',
-              fontSize: '0.78rem'
-            }}
-          >
-            {sample}
-          </button>
-        ))}
-      </div>
-
       {/* Results Display */}
       {hasSearched && (
         <div>

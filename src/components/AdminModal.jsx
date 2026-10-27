@@ -53,7 +53,7 @@ export default function AdminModal({ isOpen, onClose, onBroadcastSuccess }) {
     payment_status: 'Verified'
   });
 
-  const correctPasscode = 'forma2026';
+  const correctPasscode = import.meta.env.VITE_ORGANIZER_PASSCODE || 'parthi1001';
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ export default function AdminModal({ isOpen, onClose, onBroadcastSuccess }) {
       loadTeams();
       loadSubmissions();
     } else {
-      setErrorMsg('Incorrect passcode. Use: forma2026');
+      setErrorMsg('Incorrect passcode. Access denied.');
     }
   };
 
@@ -288,7 +288,7 @@ export default function AdminModal({ isOpen, onClose, onBroadcastSuccess }) {
               type="password"
               value={passcode}
               onChange={(e) => setPasscode(e.target.value)}
-              placeholder="Enter passcode (default: forma2026)"
+              placeholder="Enter organizer passcode"
               style={{
                 width: '100%',
                 background: 'rgba(255, 255, 255, 0.05)',
